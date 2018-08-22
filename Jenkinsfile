@@ -5,7 +5,7 @@ pipeline{
 		stage('Compile Stage'){
 		
 			steps{
-				sh 'mvn clean compile'
+				 echo 'Compiling...'
 				
 			}
 		}
@@ -13,7 +13,7 @@ pipeline{
 		stage('Code Review Stage'){
 		
 			steps{
-				sh 'mvn -P metrics pmd:pmd'
+				echo 'Code Reviewing...'
 				
 			}
 		}
@@ -21,7 +21,7 @@ pipeline{
 		stage('Test Stage'){
 		
 			steps{
-				sh 'mvn test'
+				echo 'Testing...'
 				
 			}
 		}
