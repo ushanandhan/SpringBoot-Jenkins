@@ -5,24 +5,27 @@ pipeline{
 		stage('Compile Stage'){
 		
 			steps{
-				bat 'mvn clean compile'
-				
+				withMaven(maven:'MAVEN'){
+					bat 'mvn clean compile'
+				}
 			}
 		}
 		
 		stage('Code Review Stage'){
 		
 			steps{
-				bat 'mvn -P metrics pmd:pmd'
-				
+				withMaven(maven:'MAVEN'){
+					bat 'mvn -P metrics pmd:pmd'
+				}
 			}
 		}
 		
 		stage('Test Stage'){
 		
 			steps{
-				bat 'mvn test'
-				
+				withMaven(maven:'MAVEN'){
+					bat 'mvn test'
+				}
 			}
 		}
 	}
