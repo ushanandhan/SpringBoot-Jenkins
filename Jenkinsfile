@@ -1,30 +1,31 @@
 pipeline{
 	agent any
+	tools { 
+        	maven 'MAVEN' 
+        	jdk 'jdk1.8.0_141' 
+    	}
 	stages{
 		stage('Compile Stage'){
 		
 			steps{
-				withMaven(maven:'MAVEN'){
-					bat 'mvn clean compile'
-				}
+				bat 'mvn clean compile'
+				
 			}
 		}
 		
 		stage('Code Review Stage'){
 		
 			steps{
-				withMaven(maven:'MAVEN'){
-					bat 'mvn -P metrics pmd:pmd'
-				}
+				bat 'mvn -P metrics pmd:pmd'
+				
 			}
 		}
 		
 		stage('Test Stage'){
 		
 			steps{
-				withMaven(maven:'MAVEN'){
-					bat 'mvn test'
-				}
+				bat 'mvn test'
+				
 			}
 		}
 	}
