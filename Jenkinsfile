@@ -8,7 +8,7 @@ pipeline{
 		
 			steps{
 				withMaven(maven:'MAVEN'){
-					bat 'mvn clean compile'
+					sh 'mvn clean compile'
 				}
 			}
 		}
@@ -17,7 +17,7 @@ pipeline{
 		
 			steps{
 				withMaven(maven:'MAVEN'){
-					bat 'mvn -P metrics pmd:pmd'
+					sh 'mvn -P metrics pmd:pmd'
 				}
 			}
 		}
@@ -26,7 +26,7 @@ pipeline{
 		
 			steps{
 				withMaven(maven:'MAVEN'){
-					bat 'mvn test'
+					sh 'mvn test'
 				}
 			}
 		}
