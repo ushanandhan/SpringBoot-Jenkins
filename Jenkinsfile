@@ -11,12 +11,6 @@ pipeline{
 			}
 		}
 		
-		stage('Code Review Stage'){
-			steps{
-					bat 'mvn -P metrics pmd:pmd'
-			}
-		}
-		
 		stage('Test Stage'){
 			steps{
 					bat 'mvn test'
